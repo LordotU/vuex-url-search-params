@@ -1,0 +1,99 @@
+{
+  "name": "vuex-url-search-params",
+  "version": "1.0.0",
+  "description": "Persist and rehydrate your Vuex store via url search params (window.location.search)",
+  "files": [
+    "build"
+  ],
+  "keywords": [
+    "params",
+    "search",
+    "state",
+    "vue",
+    "vuex"
+  ],
+  "homepage": "https://github.com/LordotU/vuex-url-search-params#readme",
+  "bugs": {
+    "url": "https://github.com/LordotU/vuex-url-search-params/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LordotU/vuex-url-search-params.git"
+  },
+  "license": "MIT",
+  "author": "Oleg Levshin <LevshinO@gmail.com>",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "NODE_ENV=production yarn run dev",
+    "dev": "yarn rollup -c && BUILD_TYPE=old yarn rollup -c",
+    "lint": "eslint -c ./.eslintrc.js ./lib ./src",
+    "pre-commit": "lint-staged",
+    "test": "yarn test:jest && yarn test:coverage",
+    "test:coverage": "cat ./__tests__/coverage/lcov.info | coveralls",
+    "test:jest": "yarn jest"
+  },
+  "config": {
+    "pre-git": {
+      "allow-untracked-files": true,
+      "pre-commit": [
+        "yarn pre-commit"
+      ]
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/__tests__/coverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/__tests__/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/__tests__/coverage/"
+    ],
+    "verbose": false
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "url-search-params-polyfill": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "jest": "^24.7.1",
+    "lint-staged": "^8.1.5",
+    "pre-git": "^3.17.1",
+    "rollup": "^1.10.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn eslint -c ./.eslintrc.js",
+      "git add"
+    ]
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  }
+}
