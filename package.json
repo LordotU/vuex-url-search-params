@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "Persist and rehydrate your Vuex store via url search params (window.location.search)",
   "files": [
-    "build"
+    "build",
+    "lib",
+    "src"
   ],
   "keywords": [
+    "querystring",
+    "query",
+    "string",
+    "parse",
     "params",
     "search",
     "state",
@@ -28,6 +34,7 @@
     "dev": "yarn rollup -c && BUILD_TYPE=old yarn rollup -c",
     "lint": "eslint -c ./.eslintrc.js ./lib ./src",
     "pre-commit": "lint-staged",
+    "prepare": "rm build/*; yarn build",
     "test": "yarn test:jest && yarn test:coverage",
     "test:coverage": "cat ./__tests__/coverage/lcov.info | coveralls",
     "test:jest": "yarn jest"
@@ -70,6 +77,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
@@ -86,6 +94,9 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-terser": "^4.0.4"
+  },
+  "peerDependencies": {
+    "vuex": "^3.1.x"
   },
   "lint-staged": {
     "*.js": [

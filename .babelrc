@@ -5,9 +5,8 @@
   "presets": [[
     "@babel/preset-env",
     {
-      "debug": true,
       "targets": {
-        "node": true
+        "node": "current"
       }
     }
   ]]
