@@ -26,46 +26,9 @@ yarn test # yarn test:jest && yarn test:coverage
 
 ## Usage
 
-```javascript
-import Vue from 'vue'
-import Vuex from 'vuex'
+Look at the quite complex example at CodeSandbox:
 
-import getVuexUrlSearchParams from 'vuex-url-search-params'
-
-
-Vue.use(Vuex)
-
-const vuexUrlSearchParamsOptions = {
-  subscribeTo: ['setFilter'],
-  modifiers: {
-    setFilter: {
-      key: 'filter',
-      pushStateModifier: payload => payload,
-      popStateModifier: value => value,
-      emptyStateModifier: () => [],
-    }
-  },
-}
-
-const store = new Vuex.Store({
-  plugins: [getVuexUrlSearchParams(vuexUrlSearchParamsOptions)],
-
-  state: {
-    filter: [],
-  },
-
-  mutations: {
-    setFilter (state, payload) {
-      state.filter = payload
-    },
-  },
-})
-
-new Vue({
-  store,
-  el: '#app',
-})
-```
+[![Edit vuex-url-search-params](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0y113nplnp?fontsize=14)
 
 ## Configuring
 ***Note***, this plugin is now suitable only for array-like and iterable Vuex state values!
