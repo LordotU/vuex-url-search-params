@@ -82,13 +82,13 @@ Object which defines how to `<mutationType>` payload will be transform to the qu
 Query string search param name
 
 #### `modifiers.<mutationType>.pushStateModifier <Function>`
-Function for modifying mutation payload value for using it in a query string search param with key above. *Accepts `<mutationType>` payload as argument*
+Function for modifying mutation payload value for using it in a query string search param with key above. *Accepts `<mutationType>` payload as the first argument and Vuex store object as the second*
 
 #### `modifiers.<mutationType>.popStateModifier <Function>`
-Function for modifying query string search param value for using it in an appropriate mutation. *Accepts query string search param value as argument*
+Function for modifying query string search param value for using it in an appropriate mutation. *Accepts query string search param value as the first argument and Vuex store object as the second*
 
 #### `modifiers.<mutationType>.emptyStateModifier <Function>`
-Function which result will be used as payload value for mutation when an appropriate query string search param become empty
+Function which result will be used as payload value for mutation when an appropriate query string search param become empty. *Accepts Vuex store object as argument*
 
 #### `qs = window.location.search <String>`
 Query string for initialization
