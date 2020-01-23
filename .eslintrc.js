@@ -12,6 +12,7 @@ module.exports = {
     'ecmaVersion': 2018,
   },
   'rules': {
+    'arrow-parens': ['error', 'as-needed'],
     'camelcase': 0,
     'guard-for-in': 0,
     'import/no-unresolved': 0,
